@@ -7,7 +7,7 @@
 using namespace std;
 
 
-
+//{P: true}
 void resuelveCaso() {
 	int numeroP, contadorC = 0, i = 0, aux = 0;
 	cin >> numeroP;
@@ -15,11 +15,19 @@ void resuelveCaso() {
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
-	for (i = numeroP - 1; i > 0; i--) {
-		if (datos[i] < datos[i - 1]) {
-			contadorC++;
+	if (!datos.empty()) {
+		aux = datos[numeroP - 1];
+		for (i = numeroP - 1; i > 0; i--) {
+			if (aux < datos[i - 1]) {
+				contadorC++;
+			}
+
+			if (aux > datos[i - 1]) {
+				aux = datos[i - 1];
+			}
 		}
 	}
+	
 	cout << contadorC << endl;
 }
 
