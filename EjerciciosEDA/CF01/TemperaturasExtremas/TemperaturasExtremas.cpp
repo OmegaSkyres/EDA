@@ -13,7 +13,8 @@ void resuelveCaso() {
 	cin >> numeroP;
 	vector<int> datos(numeroP);
 	//{I: 1 <= i < datos.size()}
-	//{I: contPicos = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
+	//{I: contadorP = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
+	//{I: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]}
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
@@ -27,7 +28,8 @@ void resuelveCaso() {
 	}
 	cout << contadorP << " " << contadorV << endl;
 }
-
+//{Q: contadorP = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
+//{Q: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]}
 int main() {
 	// Para la entrada por fichero.
 	
