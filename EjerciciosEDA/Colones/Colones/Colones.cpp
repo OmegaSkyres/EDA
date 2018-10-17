@@ -10,9 +10,11 @@ using namespace std;
 //{P: true}
 void resuelveCaso() {
 	int numeroP, contadorC = 0, i = 0, aux = 0;
+	//{I: 0 < i <= numeroP - 1}
+	//{I: cont = #k: forall u: numeroP > u > 0: v[u] < v[u-1] && aux = exists w: numeroP > u >= w > 0: v[u] > v[w] ==> w = u}
 	cin >> numeroP;
 	vector<int> datos(numeroP);
-	for (int i = 0; i < numeroP; i++) {
+	for (i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
 	if (!datos.empty()) {
@@ -30,6 +32,7 @@ void resuelveCaso() {
 	
 	cout << contadorC << endl;
 }
+//{Q: cont = #k: forall u: numeroP > u > 0: v[u] < v[u-1] && exists w: numeroP > u >= w > 0: v[u] > v[w] ==> w = u}
 
 int main() {
 	// Para la entrada por fichero.
