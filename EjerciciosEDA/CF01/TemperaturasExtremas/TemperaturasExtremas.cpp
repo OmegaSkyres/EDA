@@ -7,11 +7,13 @@
 using namespace std;
 
 
-
+//{P: true}
 void resuelveCaso() {
 	int numeroP, contadorP = 0, contadorV = 0;
 	cin >> numeroP;
 	vector<int> datos(numeroP);
+	//{I: 1 <= i < datos.size()}
+	//{I: contPicos = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
