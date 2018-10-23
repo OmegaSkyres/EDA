@@ -8,12 +8,13 @@ using namespace std;
 
 
 
-void resuelveCaso() {
+void resuelveCaso(vector<int> &datos, int &valorP) {
 	bool ok = true;
-	for (int i = numeroP - 1; i > 0; i--) {
-		if (datos[i] < datos[i - 1]) {
-			j = k
-		}
+	for (int i = 0; i > valorP; i--) {
+		
+	}
+	if (datos[i] < datos[i - 1]) {
+
 	}
 	cout << "NO" << endl,
 	cout << "SI" << endl;
@@ -32,12 +33,12 @@ int main() {
 	int numerosV, valorP, contadorC = 0, i = 0;
 	cin >> numerosV >> valorP;
 	vector<int> datos(numerosV);
-	for (int i = 0; i < numeroP; i++) {
+	for (int i = 0; i < numerosV; i++) {
 		cin >> datos[i];
 	}
 	// Resolvemos
 	for (int i = 0; i < numCasos; ++i) {
-		resuelveCaso();
+		resuelveCaso(datos,valorP);
 	}
 
 
