@@ -8,16 +8,28 @@ using namespace std;
 
 
 
-void resuelveCaso(vector<int> &datos, int &valorP) {
+void resuelveCaso(vector<int> &datos, int &valorP, int &numerosV) {
 	bool ok = true;
-	for (int i = 0; i > valorP; i--) {
-		
+	long long int maximo = 0, minimo = 999999999999999, aux = 0;
+	for (int i = 0; i < valorP; i++) {
+		if (datos[i] > datos[i + 1]) {
+			aux = datos[i];
+			if (aux > maximo) {
+				maximo = datos[i];
+			}
+		}
 	}
-	if (datos[i] < datos[i - 1]) {
-
+	for (int i = valorP + 1; i < numerosV - 1; i++) {
+		if (datos[i] < datos[i + 1]) {
+			aux = datos[i];
+			if (aux < minimo) {
+				minimo = datos[i];
+			}
+		}
 	}
-	cout << "NO" << endl,
-	cout << "SI" << endl;
+	if (maximo < minimo) cout << "SI" << endl;
+	else cout << "NO" << endl;
+	
 }
 
 int main() {
@@ -38,7 +50,7 @@ int main() {
 	}
 	// Resolvemos
 	for (int i = 0; i < numCasos; ++i) {
-		resuelveCaso(datos,valorP);
+		resuelveCaso(datos,valorP, numerosV);
 	}
 
 
