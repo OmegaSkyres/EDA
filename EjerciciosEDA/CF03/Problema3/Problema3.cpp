@@ -12,7 +12,7 @@ void resuelveCaso() {
 	bool ok = true;
 	for (int i = numeroP - 1; i > 0; i--) {
 		if (datos[i] < datos[i - 1]) {
-			
+			j = k
 		}
 	}
 	cout << "NO" << endl,
