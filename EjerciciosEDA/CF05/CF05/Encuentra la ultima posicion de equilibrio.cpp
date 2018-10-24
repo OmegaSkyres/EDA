@@ -8,7 +8,7 @@ using namespace std;
 
 
 
-void resuelveCaso(vector<int> v) {
+void resuelveCaso(vector<int> &v) {
 	int p = -1;
 	int cero = 0, uno = 0;
 	int i = 0;
@@ -19,10 +19,10 @@ void resuelveCaso(vector<int> v) {
 	//forall z : p < z < i ==> numCero(v,0,z+1) != numUno(v,0,z+1)
 	//Funcion de Cota v.length - i;
 	while (i < v.size()) {
-		if (v.at == 0) {
+		if (v.at(i) == 0) {
 			cero++;
 		}
-		if (v.at == 1) {
+		if (v.at(i) == 1) {
 			uno++;
 		}
 		if (cero == uno) {
@@ -30,6 +30,7 @@ void resuelveCaso(vector<int> v) {
 		}
 		i++;
 	}
+	cout << p << endl;
 }
 
 int main() {
@@ -39,12 +40,18 @@ int main() {
 	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
 
-
+	int numerosV;
 	unsigned int numCasos;
 	std::cin >> numCasos;
+
 	// Resolvemos
 	for (int i = 0; i < numCasos; ++i) {
-		resuelveCaso();
+		cin >> numerosV;
+		vector<int> v(numerosV);
+		for (int i = 0; i < numerosV; i++) {
+			cin >> v[i];
+		}
+		resuelveCaso(v);
 	}
 
 
@@ -56,4 +63,4 @@ int main() {
 	return 0;
 }
 
-//Postocondicion{-1<= p < v.lenght && (#k:0<=k<=p : v[k] == 0) = (#k :0 <= k <= p::v[n] = 1)
+//Postcondicion{-1<= p < v.lenght && (#k:0<=k<=p : v[k] == 0) = (#k :0 <= k <= p::v[n] = 1)
