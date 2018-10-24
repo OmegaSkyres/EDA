@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Encuentra la ultima posicion de equilibrio.cpp" />
+    <ClCompile Include="EncuentraLaUltimaPosicionDeEquilibrio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="casos.txt" />

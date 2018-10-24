@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Encuentra la ultima posicion de equilibrio.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
+    <Text Include="casos.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="casos.txt" />
+    <ClCompile Include="EncuentraLaUltimaPosicionDeEquilibrio.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
