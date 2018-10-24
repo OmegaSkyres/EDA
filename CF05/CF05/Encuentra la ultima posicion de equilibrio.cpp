@@ -10,8 +10,14 @@ using namespace std;
 
 void resuelveCaso(vector<int> v) {
 	int p = -1;
-	int cero = 0, uno = 1;
+	int cero = 0, uno = 0;
 	int i = 0;
+	// -1 < p < v.length && 0 <= i <= v.length
+	// cero = #k : 0 <= k < i : v[k] = 0
+	// uno = #k : 0 <= k < i : v[k] = 1
+	//p = Numcero(v,0,p+1) = numUno(v,0,p+1)
+	//forall z : p < z < i ==> numCero(v,0,z+1) != numUno(v,0,z+1)
+	//Funcion de Cota v.length - i;
 	while (i < v.size()) {
 		if (v.at == 0) {
 			cero++;
