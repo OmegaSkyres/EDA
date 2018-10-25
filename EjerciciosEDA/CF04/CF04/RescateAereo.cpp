@@ -1,4 +1,4 @@
-//NOMBRE y APELLIDOS
+//Roberto Torres Prensa
 
 
 #include <iostream>
@@ -9,33 +9,29 @@ using namespace std;
 //Precondición P{Exist z: 0<= alturaE < z &&  z = v[i] }
 
 void resuelveCaso() {
-	int numeroE = 0, alturaE = 0, inicio = 0, fin = 0, contador = 0, contadorA = 0, inicioA = 0;
-	bool ok = true;
+	int numeroE = 0, alturaE = 0, inicio = 0, fin = 0, contadorI = 0, contadorF = 0;
 	cin >> numeroE >> alturaE;
 	vector<int> v(numeroE);
 	for (int i = 0; i < numeroE; i++) {
 		cin >> v[i];
 	}
 	for (int i = 0; i < numeroE; i++) {
-		if ((v[i] > alturaE) && (ok == true)) {
-			ok = false;
-			inicio = i;
+		if (v[i] > alturaE) {
+			contadorI++;
 		}
-		else if ((v[i] < alturaE) && (ok == false) && (contadorA < contador)) {
-			fin = i - 1;
-			ok = true;
-			contadorA = contador;
-			inicioA = inicio;
-			contador = 0;
+		else {
+			contadorI = 0;
 		}
-		if (ok == false) {
-			contador++;
+		if (contadorF < contadorI) {
+			inicio = i + 1 - contadorI;
+			fin = i;
+			contadorF = contadorI;
 		}
 		
 		
 		
 	}
-	cout << inicioA << " " << fin << endl;
+	cout << inicio << " " << fin << endl;
 	//resuelve aqui tu caso
 	   //Lee los datos
 	   //Calcula el resultado
