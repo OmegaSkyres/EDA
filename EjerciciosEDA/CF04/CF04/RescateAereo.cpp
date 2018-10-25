@@ -22,7 +22,7 @@ void resuelveCaso() {
 		else {
 			contadorI = 0;
 		}
-		if (contadorF < contadorI) {
+		if (contadorF < contadorI) { //Al ser menor estricto aseguras que en caso de empate te quedas con el de la izquierda por que es el primero que lees
 			inicio = i + 1 - contadorI;
 			fin = i;
 			contadorF = contadorI;

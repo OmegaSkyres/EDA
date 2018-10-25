@@ -7,14 +7,15 @@
 using namespace std;
 
 
-//{P: true}
+//{P: 0 < datos.size() <= 10000 && forall k: 0 <= k < datos.size() ==> -50 <= datos[k] <= 60}
 void resuelveCaso() {
 	int numeroP, contadorP = 0, contadorV = 0;
 	cin >> numeroP;
 	vector<int> datos(numeroP);
 	//{I: 1 <= i < datos.size()}
-	//{I: contadorP = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
-	//{I: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]}
+	//{I: contadorP = #u: i <= u < datos.size() - 1: datos[u - 1] < datos[u] > datos[u + 1] < i}
+	//{I: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]} // No se si esta hace falta
+
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
@@ -28,8 +29,8 @@ void resuelveCaso() {
 	}
 	cout << contadorP << " " << contadorV << endl;
 }
-//{Q: contadorP = #u: forall k: 1 <= k < n-1: a[k] > a[k+1] && a[k] > a[k-1]}
-//{Q: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]}
+//{Q: contadorP = #u: 1 <= u < datos.size() - 1: datos[u - 1] < datos[u] > datos[u + 1]}
+//{Q: contadorV = #u: 1 <= u < datos.size() - 1: datos[u - 1] > datos[u] < datos[u + 1]}
 int main() {
 	// Para la entrada por fichero.
 	
