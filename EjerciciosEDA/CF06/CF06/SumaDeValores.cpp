@@ -25,7 +25,7 @@ void resuelveCaso() {
 				maximo = datos[i];
 			}
 		}
-		if (!datos.empty() && maximo != 0){
+		if (maximo != 0){
 			while (i < datos.size()) {
 				if (datos[i] != maximo) {
 					suma += datos[i];
