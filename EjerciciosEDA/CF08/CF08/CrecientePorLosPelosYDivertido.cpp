@@ -1,4 +1,4 @@
-//NOMBRE y APELLIDOS
+//Roberto Torres Prensa
 
 
 #include <iostream>
@@ -9,18 +9,37 @@ using namespace std;
 
 
 void resuelveCaso() {
-	int repeticiones = 0, i = 0;
-	vector<int> datos;
+	int repeticiones = 0, j, contadorE = 1, nElementos, aux;
+	bool porPelos = true;
+	bool aburrido = true;
 	cin >> repeticiones;
-	cin >> datos[i];
-	while (datos[i] != '/n') {
-		cin >> datos[i];
-		i++;
+	cin >> nElementos;
+	vector<int> datos(nElementos);
+	for (j = 0; j < nElementos; j++) {
+		cin >> datos[j];
+	}
+	aux = datos[0];
+	for (int i = 0; i < (j - 1); i++) {
+		if (aux < datos[i + 1] && datos[i + 1] - aux == 1 && contadorE <= repeticiones) {
+			aux = datos[i + 1];
+			contadorE = 1;	
+		}
+		else if (aux == datos[i + 1]) {
+			contadorE++;
+		}
+		else {
+			porPelos = false;
+		}
+	
+	}
+	if (contadorE > repeticiones) {
+		aburrido = false;
 	}
 	//resuelve aqui tu caso
-	   //Lee los datos
-	   //Calcula el resultado
-	   //Escribe el resultado
+	if (aburrido && porPelos) {
+		cout << "SI" << endl;
+	}
+	else cout << "NO" << endl;
 }
 
 int main() {
