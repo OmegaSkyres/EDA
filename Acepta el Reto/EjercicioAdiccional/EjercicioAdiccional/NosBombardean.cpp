@@ -7,30 +7,34 @@
 using namespace std;
 
 
-//{P: 0 < datos.size() <= 10000 && forall k: 0 <= k < datos.size() ==> -50 <= datos[k] <= 60}
+//{P: 0 < datos.size() <= 1000 && forall k: 0 <= k < datos.size() ==> 0 <= datos[k] <= 10}
 void resuelveCaso() {
-	int numeroP, contadorC = 0, contadorD = 0;
+	int numeroP = 0, contadorB = 0, contadorS = 0;
 	cin >> numeroP;
-	vector<int> datos(numeroP);
-	//{I: 1 <= i < datos.size()}
-	//{I: contadorP = #u: i <= u < datos.size() - 1: datos[u - 1] < datos[u] > datos[u + 1] < i}
-	//{I: contadorV = #u: forall k: 1 <= k < n-1: a[k] < a[k+1] && a[k] < a[k-1]} // No se si esta hace falta
+	if(numeroP!= 0){
+		vector<int> datos(numeroP);
+		//{I: 1 <= i < datos.size()}
+		//{I: contadorB = #u: i <= u < datos.size() - 1: datos[i] == 5 datos[u] > datos[u + 1] < i}
+		//{I: contadorS = #u: i <= u < datos.size() - 1: datos[i] == 9 datos[u] < datos[u + 1] < i}
 
-	for (int i = 0; i < numeroP; i++) {
-		cin >> datos[i];
-	}
-	for (int i = 1; i < numeroP - 1; i++) {
-		if (datos[i] > datos[i + 1] && datos[i] > datos[i - 1]) {
-			contadorC++;
+		for (int i = 0; i < numeroP; i++) {
+			cin >> datos[i];
 		}
-		else if (datos[i] < datos[i + 1] && datos[i] < datos[i - 1]) {
-			contadorD++;
+		for (int i = 1; i < numeroP - 1; i++) {
+			if (datos[i] > datos[i + 1] && datos[i] == 5) { //Condición de Bombardeo
+				contadorB++;
+			}
+			else if (datos[i] < datos[i + 1] && datos[i] == 9) { //Condición de llegada de ayudas
+				contadorS++;
+			}
 		}
 	}
-	cout << contadorC << " " << contadorD << endl;
+	
+	cout << contadorB << " " << contadorS << endl;
 }
-//{Q: contadorP = #u: 1 <= u < datos.size() - 1: datos[u - 1] < datos[u] > datos[u + 1]}
-//{Q: contadorV = #u: 1 <= u < datos.size() - 1: datos[u - 1] > datos[u] < datos[u + 1]}
+//Funcion de Cota datos.size() - 1
+//{Q: contadorB = #u: 1 <= u < datos.size() - 1: datos[i] == 5 datos[u] > datos[u + 1]}
+//{Q: contadors = #u: 1 <= u < datos.size() - 1: datos[i] == 9 datos[u] < datos[u + 1]}
 int main() {
 	// Para la entrada por fichero.
 

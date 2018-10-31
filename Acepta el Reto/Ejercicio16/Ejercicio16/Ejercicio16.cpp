@@ -6,7 +6,7 @@ Definición: Dado V[N] de enteros, el índice i es un pico si V[i] es el mayor ele
 	de todos los valores almacenados en los picos de V.
 */
 
-//NOMBRE y APELLIDOS
+
 
 
 #include <iostream>
@@ -26,6 +26,8 @@ int resuelve(vector<int> &datos) {
 		}
 	}
 	return suma;
+	// El coste del algoritmo es de orden datos.size(), por que da datos.size() vueltas, por lo tanto el coste es costante.
+	
 	// Q {suma = Sum k :: 0 < k < datos.size() - 1 :: datos[k] > datos[k + 1] && datos[k] > datos[k - 1] }
 }
 

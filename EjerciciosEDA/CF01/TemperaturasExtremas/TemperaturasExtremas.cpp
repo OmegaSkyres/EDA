@@ -29,6 +29,7 @@ void resuelveCaso() {
 	}
 	cout << contadorP << " " << contadorV << endl;
 }
+//Funcion de Cota datos.size() - 1
 //{Q: contadorP = #u: 1 <= u < datos.size() - 1: datos[u - 1] < datos[u] > datos[u + 1]}
 //{Q: contadorV = #u: 1 <= u < datos.size() - 1: datos[u - 1] > datos[u] < datos[u + 1]}
 int main() {
