@@ -32,7 +32,8 @@ void resuelveCaso() {
 	
 	cout << contadorB << " " << contadorS << endl;
 }
-//Funcion de Cota datos.size() - 1
+// Funcion de Cota datos.size() - 1
+// El coste del algoritmo es de orden datos.size() - 1, por que da datos.size() vueltas, por lo tanto el coste es costante.
 //{Q: contadorB = #u: 1 <= u < datos.size() - 1: datos[i] == 5 datos[u] > datos[u + 1]}
 //{Q: contadors = #u: 1 <= u < datos.size() - 1: datos[i] == 9 datos[u] < datos[u + 1]}
 int main() {
