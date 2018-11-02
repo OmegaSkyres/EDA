@@ -9,21 +9,34 @@ using namespace std;
 
 
 void resuelveCaso() {
-	int numeroP, contadorG = 0, contadorRepeticionesG = 0, contadorJ = 0;
+	int numeroP, contadorG = 0, contadorRepeticionesG = 0, contadorJ = 0, maximoG = 0;
 	cin >> numeroP;
 	vector<int> datos(numeroP);
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
 	}
-	for (int i = 0; i < numeroP - 1; i++) {
-		if (datos[i] > 0 && datos[i + 1] > 0) {
-			contadorG = contadorG++;
+	for (int i = 0; i < numeroP; i++) {
+		if (datos[i] > 0) {
+			contadorG++;
+		}
+		else {
+			contadorG = 0;
+		}
+		if (contadorG > maximoG ) {
+			maximoG = contadorG;
+			contadorRepeticionesG = 1;
+			contadorJ = i + 1;
+		}
+		else if (contadorG == maximoG && contadorG > 0) {
+			contadorRepeticionesG++;
+			contadorJ = i + 1;
 		}
 	}
-	//resuelve aqui tu caso
-	   //Lee los datos
-	   //Calcula el resultado
-	   //Escribe el resultado
+	contadorJ = numeroP - contadorJ;
+
+	cout << maximoG << " " << contadorRepeticionesG << " " << contadorJ << endl;
+
+	
 }
 
 int main() {
