@@ -27,11 +27,6 @@ void resuelveCaso(int numeroE) {
 
 
 
-
-
-
-
-
 		if (datos[i] > 0) {
 			contador++;
 			maximo = datos[i];
