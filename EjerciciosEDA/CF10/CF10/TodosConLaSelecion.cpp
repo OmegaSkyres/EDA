@@ -8,9 +8,8 @@ using namespace std;
 
 
 
-void resuelveCaso() {
-	int numeroP, contadorG = 0, contadorRepeticionesG = 0, contadorJ = 0, maximoG = 0;
-	cin >> numeroP;
+void resuelveCaso(int numeroP) {
+	int contadorG = 0, contadorRepeticionesG = 0, contadorJ = 0, maximoG = 0;
 	vector<int> datos(numeroP);
 	for (int i = 0; i < numeroP; i++) {
 		cin >> datos[i];
@@ -47,11 +46,10 @@ int main() {
 #endif
 
 
-	unsigned int numCasos;
-	std::cin >> numCasos;
+	int numeroP;
 	// Resolvemos
-	for (int i = 0; i < numCasos; ++i) {
-		resuelveCaso();
+	while (std::cin >> numeroP) {
+		resuelveCaso(numeroP);
 	}
 
 
