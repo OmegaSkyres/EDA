@@ -5,52 +5,87 @@
 #include <fstream>
 #include <vector>
 using namespace std;
+int resolver(vector<int> &datos, vector<int> &solucion, int llano) {
+	int contador = 1, max = 0, i;
+	int longitud = datos.size() - 1;
+	for (i = datos.size() - 2; i >= 0; i--) {
+		if (datos[i] > longitud) {
+			if (contador >= llano) {
+				solucion.push_back(i + contador);
+				if (contador > max) {
+					max = contador;
+				}
+			}
+			contador = 1;
+			longitud = datos[i];
+		}
+
+		else if (datos[i] == longitud) {
+			contador++;
+		}
+
+		else {
+			if (contador >= llano) {
+				solucion.push_back(i + contador);
+				if (contador > max) {
+					max = contador;
+				}
+			}
+			contador = 0;
+		}
+	}
+
+	if (contador != 0) {
+		if (contador >= llano) {
+			solucion.push_back(i + contador);
+			if (contador > max) {
+				max = contador;
+			}
+		}
+	}
+	return max;
+}
+
+void ordenar(vector<int> &datos) {
+	int aux = 0;
+	for (int i = 0; i < datos.size(); i++) {
+		for (int j = 0; j < datos.size() - 1; j++) {
+			if (datos[j] < datos[j + 1]) {
+				aux = datos[j];
+				datos[j] = datos[j + 1];
+				datos[j + 1] = aux;
+			}
+		}
+	}
+}
 
 
-
-void resuelveCaso(int numeroP) {
-	int llano, posIni = 0, longitud = 0, contadorllanos = 0, contador = 0, aux = 0;
-	bool ok = false;
+bool resuelveCaso() {
+	int llano, max, nElementos;
+	cin >> nElementos;
+	if (!std::cin) {
+		return false;
+	}
 	cin >> llano;
-	vector<int> datos(numeroP);
-	for (int i = 0; i < numeroP; i++) {
+	vector<int> datos(nElementos);
+	vector<int> solucion;
+	for (int i = 0; i < nElementos; i++) {
 		cin >> datos[i];
 	}
-	for (int i = numeroP - 1; i >= 1; i--) {
-		if (datos[i] < datos[i - 1]) {
-			posIni = datos[i - 1];
-			contador++;
-			ok = true;
-		}
-		
-		else if (datos[i] == datos[i - 1]) {
-			aux++;
-			if(ok) contador++;
-			else {
-				posIni = datos[i];
-			}
-			
-		}
-		
-		else {
-			contador = 0;
-			aux = 0;
-			ok = false;
-		}
-		if (contador == llano) {
-			contadorllanos++;
-		}
-		if (aux > longitud) {
-			longitud = aux;
-		}
+	max = resolver(datos, solucion, llano);
+	ordenar(solucion);
+
+	cout << max << " " << solucion.size();
+	for (int i = 0; i < solucion.size(); i++) {
+		cout << " " << solucion[i];
 	}
-	if (contadorllanos == 0) {
-		longitud = 0;
-		cout << longitud << " " << contadorllanos << endl;
-	}
-	cout << longitud << " " << contadorllanos << " " << posIni << endl;
-	
+	cout << endl;
+
+	return true;
 }
+
+
+
 
 int main() {
 	// Para la entrada por fichero.
@@ -62,9 +97,8 @@ int main() {
 
 	int numeroP;
 	// Resolvemos
-	while (std::cin >> numeroP) {
-		resuelveCaso(numeroP);
-	}
+	resuelveCaso();
+	
 
 
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
