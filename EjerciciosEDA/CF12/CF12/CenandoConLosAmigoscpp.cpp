@@ -9,50 +9,46 @@ using namespace std;
 
 
 void resuelveCaso(int numeroE) {
-	int maximo = 0, suma = 0, contador = 0, diaIni = 0, i = 0, auxS = 0, auxC = 0, auxM = 0;
+	int maximo = 0, suma = 0, contador = 0, diaIni = 0, contMax = 0;
 	bool ok = true;
 	vector<int> datos(numeroE);
-	for (i = 0; i < numeroE; i++) {
+	for (int i = 0; i < numeroE; i++) {
 		cin >> datos[i];
 	}
-	i = 0;
-	while (i < numeroE) {
+	suma = 0;
+	for (int i = 0; i < numeroE; i++) {
 		suma += datos[i];
+
 		if (suma <= 0) {
+			if (datos[i] <= 0) {
+				suma = 0;
+			}
+			else {
+				suma = datos[i];
+			}
 			contador = 0;
-
 		}
 
-
-
-
-
-		if (datos[i] > 0) {
+		if (suma > 0) {
 			contador++;
-			maximo = datos[i];
-			if (maximo > auxM) {
-				auxM = maximo;
+			if (suma > maximo) {
+				maximo = suma;
+				contMax = contador;
+				diaIni = i - contador + 1;
 			}
-			if (suma > auxS) {
-				suma += datos[i];
-				auxS = suma;
-				if (ok) {
-					diaIni = i;
-					ok = false;
-				}
-				auxC = contador;
-			}
-			else if (suma == auxS) {
-				if (contador < auxC) {
-					auxC = contador;
+			else if (suma == maximo) {
+				if (contador < contMax) {
+					contMax = contador;
+					diaIni = i - contador + 1;
 				}
 			}
 		}
-		
-		i++;
+
+
+
 	}
 	
-	cout << auxS << " " << diaIni << " " << auxC << endl;
+	cout << maximo << " " << diaIni << " " << contMax << endl;
 }
 
 int main() {
