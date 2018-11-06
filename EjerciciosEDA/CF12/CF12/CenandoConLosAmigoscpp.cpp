@@ -45,7 +45,6 @@ void resuelveCaso(int numeroE) {
 		}
 
 
-
 	}
 	
 	cout << maximo << " " << diaIni << " " << contMax << endl;
