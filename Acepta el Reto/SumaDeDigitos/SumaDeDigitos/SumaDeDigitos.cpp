@@ -23,11 +23,13 @@ int resuelveCaso(int numero) {
 }
 
 int main() {
+	/*
 	// Para la entrada por fichero.
 #ifndef DOMJUDGE
 	std::ifstream in("casos.txt");
 	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
+*/
 	int suma;
 	int numero;
 	cin >> numero;
@@ -38,11 +40,11 @@ int main() {
 		cin >> numero;
 	}
 
-
+	/*
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
 	std::cin.rdbuf(cinbuf);
 	system("PAUSE");
 #endif
-
+*/
 	return 0;
 }
