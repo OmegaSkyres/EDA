@@ -7,10 +7,10 @@
 using namespace std;
 
 
-//{P: true}
+//{P: 0 <= v.length < 100.000}
 void resuelveCaso() {
 	int numeroP, contadorC = 0, i = 0, aux = 0;
-	//{I: 0 < i <= datos.size() - 1}
+	//{I: 0 <= i <= datos.size() - 1}
 	//{I: cont = #k: forall u: datos.size() > u > 0: v[u] < v[u-1] && aux = exists w: datos.size() > u >= w > 0: v[u] > v[w] ==> w = u}
 	cin >> numeroP;
 	vector<int> datos(numeroP);
@@ -32,6 +32,7 @@ void resuelveCaso() {
 	
 	cout << contadorC << endl;
 }
+// coste lineal O(n) = > O(v.size() - 1) Porque el for da v.size() - 1 vueltas de coste lineal
 //{Q: cont = #k: forall u: datos.size() > u > 0: v[u] < v[u-1] && exists w: datos.size() > u >= w > 0: v[u] > v[w] ==> w = u}
 
 int main() {

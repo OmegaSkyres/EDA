@@ -6,7 +6,8 @@
 #include <vector>
 using namespace std;
 
-//Precondición P{Exist z: 0<= alturaE < z &&  z = v[i] }
+
+//{P: 0 < v.Length && forall k:: 0 <= k < v.Length == > v[k] > 0}
 
 void resuelveCaso() {
 	int numeroE = 0, alturaE = 0, inicio = 0, fin = 0, contadorI = 0, contadorF = 0;
@@ -15,6 +16,9 @@ void resuelveCaso() {
 	for (int i = 0; i < numeroE; i++) {
 		cin >> v[i];
 	}
+	//{I: 0 <= i < v.Length}
+	//{I: contadorI = #u: forall k: 0 <= k < v.Length: v[k] > t}
+	//{I: contadorF = #w: forall k: 0 <= k < v.Length: v[k] > t}
 	for (int i = 0; i < numeroE; i++) {
 		if (v[i] > alturaE) {
 			contadorI++;
@@ -37,6 +41,9 @@ void resuelveCaso() {
 	   //Calcula el resultado
 	   //Escribe el resultado
 }
+//Coste lineal O(n)=>O(v.size()) ya que recorre una vez el vector desde 0 hasta v.size() con el bucle for
+//cota v.size()-i
+//Q: #u :: forall 0<=u<.size() ==> v[u]>h
 
 int main() {
 	// Para la entrada por fichero.

@@ -7,12 +7,14 @@
 using namespace std;
 
 
-
+//coste lineal O(n)=> O(j) => O(i) Se recorre el vector entero
+//P: v.size>=0
 void resuelveCaso() {
 	int nElementos, j, aux = 0, division = 0;
 	cin >> nElementos;
 	j = nElementos - 1;
 	vector<int>datos(nElementos);
+
 	for (int i = 0; i < nElementos; i++) {
 		cin >> datos[i];
 	}
@@ -42,7 +44,7 @@ void resuelveCaso() {
 	   //Calcula el resultado
 	   //Escribe el resultado
 }
-
+//Q: division == forall u:: 0<=u<datos.size ==> datos[u]>0 ==> aux=datos.size() || datos[u]< 0 ==> aux=u
 int main() {
 	// Para la entrada por fichero.
 #ifndef DOMJUDGE

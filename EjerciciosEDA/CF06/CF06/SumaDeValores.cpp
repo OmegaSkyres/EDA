@@ -6,12 +6,16 @@
 #include <vector>
 using namespace std;
 
-
-
+//P: datos!=null
+// Coste lineal en funcion de v.Length: O(n)
 void resuelveCaso() {
 	int numeros, maximo = 0, posMax = 0, suma = 0, i = 0;
 	cin >> numeros;
 	vector<int> datos(numeros);
+	//cota v.size()-i
+	//I: 0<=i<=v.size()
+	//I: maximo = forall w:: 0<=w<i==> maximo>v[w]
+	//I: forall u:: 0<=u<maximo<i =>  && (sum(v[u]) - #maximo*maximo)
 	for (int i = 0; i < numeros; i++) {
 		cin >> datos[i];
 	}
@@ -40,6 +44,8 @@ void resuelveCaso() {
 	cout << suma << endl;
 
 }
+//Q: maximo = forall w:: 0<=u<datos.size()==> maximo>v[w]
+//Q: suma = forall u:: 0<=u<maximo<datos.size() =>  && (sum(v[u]) - #maximo*maximo) 
 
 int main() {
 	// Para la entrada por fichero.

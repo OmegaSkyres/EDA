@@ -7,7 +7,8 @@
 using namespace std;
 
 
-
+//coste lineal O(n)=> O(v.size()-1) Ya que recorre el vector de principio a fin, o incluso no llega al final
+//P: v!=null
 void resuelveCaso() {
 	int repeticiones = 0, j, contadorE = 1, nElementos, aux;
 	bool porPelos = true;
@@ -19,6 +20,10 @@ void resuelveCaso() {
 		cin >> datos[j];
 	}
 	aux = datos[0];
+	//cota datos.size() - i
+	//I: 0<= i <=datos.size()-1
+	//I: porPelos = forall u:: 0<=u<i ==> v[u]>v[+1] && v[u+1]-v[u] == 1
+	//I: aburrido = #v[u] : forall u:: 0<=u<i ==> #v[u] < repeticiones
 	for (int i = 0; i < (j - 1); i++) {
 		if (aux < datos[i + 1] && datos[i + 1] - aux == 1 && contadorE <= repeticiones) {
 			aux = datos[i + 1];
@@ -41,6 +46,9 @@ void resuelveCaso() {
 	}
 	else cout << "NO" << endl;
 }
+//Q
+//porPelos = forall u:: 0<=u<v.size()-1 ==> v[u]>v[+1] && v[u+1]-v[u] == 1
+//aburrido = #v[u] : forall u:: 0<=u<v.size()-1 ==> #v[u] < repeticones
 
 int main() {
 	// Para la entrada por fichero.

@@ -6,47 +6,45 @@
 using namespace std;
 
 void ordenar(vector<int> &datos) {
-	int temporal;
+	int aux;
 
 	for (int i = 0; i < datos.size(); i++) {
 		for (int j = 0; j < datos.size() - 1; j++) {
 			if (datos[j] < datos[j + 1]) { // Ordena el array de mayor a menor
-				temporal = datos[j];
+				aux = datos[j];
 				datos[j] = datos[j + 1];
-				datos[j + 1] = temporal;
+				datos[j + 1] = aux;
 			}
 		}
 	}
 
 }
 
-//Coste de la funcion: O(n), ya que recorre todos los n elementos del vector en busca de llanos
+//Coste de la funcion: O(n), ya que recorre todos los n elementos del vector
 
-//requires l > 1
+
 
 int resolver(vector<int> datos, vector<int>& sol, int l) {
-	int cont = 1, max = 0;
-	int i;
-	int h = datos[datos.size() - 1];
+	int cont = 1, max = 0, i;
+	int longitud = datos[datos.size() - 1];
 
 	for (i = datos.size() - 2; i >= 0; i--)
-		//invariant 0 <= i <= datos.size() - 2
-		//decreases i
+	
 	{
-		if (datos[i] > h) { //si se encuentra una altura mas alta que las vistas hasta el momento
+		if (datos[i] > longitud) { 
 			if (cont >= l) {
 				sol.push_back(i + cont);
 				if (cont > max)
 					max = cont;
 			}
 			cont = 1;
-			h = datos[i];
+			longitud = datos[i];
 		}
 
-		else if (datos[i] == h) //si la altura es igual
+		else if (datos[i] == longitud) 
 			cont++;
 
-		else { //si pasamos a una altura mas baja
+		else { 
 			if (cont >= l) {
 				sol.push_back(i + cont);
 				if (cont > max)
@@ -56,9 +54,8 @@ int resolver(vector<int> datos, vector<int>& sol, int l) {
 		}
 	}
 
-	if (cont != 0) { //si el ultimo elemento es un llano el bucle no lo contabiliza
+	if (cont != 0) { 
 		if (cont >= l) {
-			//sol.push_back(j - cont + 1);
 			sol.push_back(i + cont);
 			if (cont > max)
 				max = cont;
@@ -68,26 +65,24 @@ int resolver(vector<int> datos, vector<int>& sol, int l) {
 	return max;
 }
 
-//ensures 0 <= sol.size() <= datos.size() / l
-//ensures max == max p, q :: 0 <= p <= q < datos.size() - 2 :: forall i :: p <= i <= q ==> datos[i] >= l 
 
 bool resuelveCaso() {
-	int n, l, max;
-	cin >> n;
+	int numero, l, maximo;
+	cin >> numero;
 	if (!std::cin)
 		return false;
 	cin >> l;
 
 	vector<int> sol;
-	vector<int> datos(n);
-	for (int i = 0; i < n; i++) {
+	vector<int> datos(numero);
+	for (int i = 0; i < numero; i++) {
 		cin >> datos[i];
 	}
 
-	max = resolver(datos, sol, l);
+	maximo = resolver(datos, sol, l);
 	ordenar(sol);
 
-	cout << max << " " << sol.size();
+	cout << maximo << " " << sol.size();
 	for (int i = 0; i < sol.size(); i++) {
 		cout << " " << sol[i];
 	}
@@ -98,7 +93,7 @@ bool resuelveCaso() {
 
 int main() {
 
-	// ajuste para que cin extraiga directamente de un fichero
+	
 #ifndef DOMJUDGE
 	std::ifstream in("casos.txt");
 	auto cinbuf = std::cin.rdbuf(in.rdbuf());
@@ -106,7 +101,7 @@ int main() {
 
 	while (resuelveCaso());
 
-	// restablecimiento de cin
+	
 #ifndef DOMJUDGE
 	std::cin.rdbuf(cinbuf);
 	system("pause");
