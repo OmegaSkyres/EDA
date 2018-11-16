@@ -6,7 +6,7 @@
 #include <fstream>
 using namespace std;
 
-bool resuelve(int numero, int &longitud) {
+bool resuelve(long long int numero, int &longitud) {
 	int aux;
 	bool polidivisible = true;
 	if (numero < 10) { //Caso Base
@@ -25,13 +25,10 @@ bool resuelve(int numero, int &longitud) {
 	return polidivisible;
 }
 
-bool resuelveCaso() {
-	int numero, longitud = 1;
-	cin >> numero;
+bool resuelveCaso(long long int &numero) {
+	int longitud = 1;
 	//Leer caso de prueba
 
-	if (!std::cin)
-		return false;
 	if (resuelve(numero, longitud)) {
 		cout << "POLIDIVISIBLE" << endl;
 	}
@@ -43,19 +40,23 @@ bool resuelveCaso() {
 
 
 int main() {
-
+	/*
 	// ajuste para que cin extraiga directamente de un fichero
 #ifndef DOMJUDGE
 	std::ifstream in("casos.txt");
 	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
-
-	while (resuelveCaso());
-
+*/
+	long long int numero;
+	while (std::cin >> numero) {
+		resuelveCaso(numero);
+	}
+	/*
 	// restablecimiento de cin
 #ifndef DOMJUDGE
 	std::cin.rdbuf(cinbuf);
 	system("pause");
 #endif
+*/
 	return 0;
 }
