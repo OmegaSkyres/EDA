@@ -5,17 +5,15 @@
 #include <fstream>
 using namespace std;
 
-void resuelve(long long int base) {
-	int resultado = 0;
-	if (base < 6) { //Caso Base
-		resultado = base;
+void resuelve(int n) {
+	int base;
+
+	base = n / 6;
+	if (n >= 6) {
+		resuelve(base);
 	}
-	else { //Caso Recursivo
-		resuelve(base / 6);
-		
-		
-	}
-	cout << resultado % 6;
+
+	cout << n % 6;
 }
 
 void resuelveCaso() {
