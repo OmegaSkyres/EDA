@@ -15,8 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="InvertirNumero.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="InvertirLosDigitosDeUnNumero.cpp">
+      <Filter>Archivos de recursos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
