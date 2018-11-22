@@ -6,41 +6,55 @@
 #include <vector>
 using namespace std;
 
+int buscaBin(vector<int> vector, int a, int b) {
+	int min, m;
+	// Pre : v esta ordenado entre 0 . . longitud (v)1
+	// ( 0 <= a <= l o n g i t u d ( v ) ) && ( -1 <= b <= longitud(v) - 1) && (a <= b + 1)
+		// todos l o s elementos a la izquie rda de ’a ’ son <= x
+		// todos l o s elementos a la derecha de ’b ’ son > x
+	if (a + 1 == b) // Con solo un elemento es el propio elemento
+		min = vector[a];
+
+	else if (a + 2 == b) { // Con 2 elementos es el menor
+		if (vector[a] < vector[a + 1]) {
+			min = vector[a];
+		}
+		else {
+			min = vector[a + 1];
+		}
+	}
+	else { // Miramos en que mitad
+		m = (a + b) / 2;
+		if (vector[m] < vector[m + 1] && vector[m] > vector[m - 1])
+			min = buscaBin(vector, a, m);
+		else if (vector[m] > vector[m + 1] && vector[m] < vector[m - 1]) {
+			min = buscaBin(vector, m + 1, b);
+		}
+
+		else
+			min = vector[m];
+	}
+	return min;
+	// Post : devuelve el mayor i (0 <= i <= longitud(v) - 1) que cumple v[i] <= x
+	// s i x es menor que todos l o s elementos de v , devuelve 1
+}
 
 
 void resuelveCaso() {
+	int min, elemento;
 	vector<int> vector;
 	int nElementos;
 	cin >> nElementos;
 	for (int i = 0; i < nElementos; i++) {
-		cin >> vector[i];
+		cin >> elemento;
+		vector.push_back(elemento);
 	}
+	min = buscaBin(vector, 0, vector.size());
+	cout << min << endl;
+
 }
 
-	int buscaBin(vector<int> vector, int a, int b) {
-		// Pre : v esta ordenado entre 0 . . longitud (v)1
-		// ( 0 <= a <= l o n g i t u d ( v ) ) && ( -1 <= b <= longitud(v) - 1) && (a <= b + 1)
-			// todos l o s elementos a la izquie rda de ’a ’ son <= x
-			// todos l o s elementos a la derecha de ’b ’ son > x
-			int p, m;
-		if (a == b + 1)
-			p = a - 1;
-		else { // a <= b
-			m = (a + b) / 2;
-			if (vector[m] <= x)
-				p = buscaBin(vector, x, m + 1, b);
 	
-			else
-				p = buscaBin(vector, x, a, m - 1);
-		}
-		return p;
-		// Post : devuelve el mayor i (0 <= i <= longitud(v) - 1) que cumple v[i] <= x
-		// s i x es menor que todos l o s elementos de v , devuelve 1
-	}
-	//resuelve aqui tu caso
-	   //Lee los datos
-	   //Calcula el resultado
-	   //Escribe el resultado}
 
 int main() {
 	// Para la entrada por fichero.
