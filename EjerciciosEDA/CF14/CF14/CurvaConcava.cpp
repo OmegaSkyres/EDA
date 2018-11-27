@@ -26,7 +26,7 @@ int buscaBin(vector<int> vector, int a, int b) {
 	else { // Miramos en que mitad
 		m = (a + b) / 2;
 		if (vector[m] < vector[m + 1] && vector[m] > vector[m - 1])
-			min = buscaBin(vector, a, m);
+			min = buscaBin(vector, a, m - 1);
 		else if (vector[m] > vector[m + 1] && vector[m] < vector[m - 1]) {
 			min = buscaBin(vector, m + 1, b);
 		}
