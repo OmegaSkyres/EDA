@@ -20,9 +20,20 @@ using namespace std;
 // configuración, y escribiendo la respuesta
 
 pelicula::pelicula(horario inicio, horario duracion, string nombre) {
-
+	horaInicio = inicio;
+	horaFin = duracion;
+	nombreP = nombre;
 }
 
+pelicula::pelicula() {}
+
+string pelicula::getNombre() {
+	return nombreP;
+}
+
+void pelicula::print() {
+	print();
+}
 
 void resuelveCaso(int numCasos) {
 	horario inicio, fin, duracion;
@@ -43,22 +54,26 @@ void resuelveCaso(int numCasos) {
 	// escribir solución
 }
 
-bool operator>() {
-	bool ok;
-
-
-	return ok;
+bool pelicula::operator>(pelicula &other) {
+	if (other.horaFin > horaFin) {
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
-bool operator<() {
-	bool ok;
-	return ok;
+bool pelicula::operator<(pelicula &other) {
+	if (other.horaFin < horaFin){
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
-horario operator+() {
-	horario h;
-
-	return h;
+horario operator+(horario other) {
+	
 }
 
 int main() {

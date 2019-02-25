@@ -11,15 +11,16 @@ private:
 	horario horaInicio;
 	horario horaFin;
 	horario duracion;
-	string nombre;
+	string nombreP;
 
 public:
 	pelicula(horario inicio, horario duracion, string nombre);
 	pelicula(); //Constructo vacio
 	~pelicula(); //Destructor
 	void print();
-	bool operator>();
-	bool operator<();
+	string getNombre();
+	bool operator>(pelicula &peli);
+	bool operator<(pelicula &peli);
 	horario operator+();
 	
 		

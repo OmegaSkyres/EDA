@@ -1,56 +1,69 @@
 
 
-// Roberto Torres Prensa
+//Roberto Torres Prensa
 
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <vector>
-using namespace std;
-
 #include "horas.h"
 
+
 bool resuelveCaso() {
-	int nH, nC;
+	int nH = 0, nC = 0;
 	horas h;
+
 	cin >> nH >> nC;
 
-	if (nH && nC == 0)
+	if (nH == 0 && nC == 0) {
 		return false;
+	}
 
 	vector<horas> horario(nH);
+
 	for (int i = 0; i < nH; i++) {
 		cin >> horario[i];
 	}
-	for (int i = 0; i < nC; i++) {
-		cin >> h;
-		
+
+	for (int j = 0; j < nC; j++) {
+		try {
+			cin >> h;
+			//iterador automatico
+			auto p = lower_bound(horario.begin(), horario.end(), h);
+
+			if (p == horario.end()) {
+				cout << "NO\n";
+			}
+			else {
+				//*p = objeto que está apuntando ese iterador
+				cout << *p << "\n";
+			}
+		}
+		catch (invalid_argument const &e) {
+			cout << e.what() << "\n";
+		}
 	}
-	auto p = lower_bound(horario.begin(), horario.end(), h);
-	if (p = horario.end()) {
-		cout << "NO\n";
-	}
-	else
-		cout << *p << "\n";
-	//Resolver problema
-	//Escribir resultado
+
+	cout << "---" << endl;
 	return true;
 }
 
-
 int main() {
-
-	// ajuste para que cin extraiga directamente de un fichero
+	// Para la entrada por fichero.
 #ifndef DOMJUDGE
 	std::ifstream in("casos.txt");
 	auto cinbuf = std::cin.rdbuf(in.rdbuf());
 #endif
 
+
+	// Resolvemos
 	while (resuelveCaso());
 
-	// restablecimiento de cin
-#ifndef DOMJUDGE
+
+#ifndef DOMJUDGE // para dejar todo como estaba al principio
 	std::cin.rdbuf(cinbuf);
-	system("pause");
+	system("PAUSE");
 #endif
+
 	return 0;
 }

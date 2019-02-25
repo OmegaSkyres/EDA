@@ -9,3 +9,5 @@
 horario::horario(int hora, int min, int seg) : hora(hora) {
 	if (hora)
 }
+
+void
