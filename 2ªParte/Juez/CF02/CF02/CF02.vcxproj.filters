@@ -15,16 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="horas.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="horario.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="pelicula.cpp">
+      <Filter>Archivos de recursos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="conjunto.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="horario.h">
+      <Filter>Archivos de recursos</Filter>
     </ClInclude>
-    <ClInclude Include="horas.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="pelicula.h">
+      <Filter>Archivos de recursos</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

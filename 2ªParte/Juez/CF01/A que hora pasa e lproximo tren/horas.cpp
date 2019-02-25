@@ -1,4 +1,5 @@
 
+
 // Roberto Torres Prensa
 
 #include <iostream>
@@ -6,40 +7,35 @@
 #include <vector>
 using namespace std;
 
-#include "conjunto.h"
+#include "horas.h"
 
 bool resuelveCaso() {
-	int numeroT, numeroH, HH, MM, SS;
-	vector<string> horas;
-	vector<string> horaDelSiguiente;
-	cin >> numeroT >> numeroH;
+	int nH, nC;
+	horas h;
+	cin >> nH >> nC;
 
-	if (numeroT && numeroH == 0)
+	if (nH && nC == 0)
 		return false;
 
-	for (int i = 0; i < numeroT; i++) {
-		horas[i].push_back;
+	vector<horas> horario(nH);
+	for (int i = 0; i < nH; i++) {
+		cin >> horario[i];
 	}
-	for (int i = 0; i < numeroH; i++) {
-		horaDelSiguiente[i].push_back
+	for (int i = 0; i < nC; i++) {
+		cin >> h;
+		
 	}
+	auto p = lower_bound(horario.begin(), horario.end(), h);
+	if (p = horario.end()) {
+		cout << "NO\n";
+	}
+	else
+		cout << *p << "\n";
 	//Resolver problema
 	//Escribir resultado
 	return true;
 }
 
-class horas {
-private:
-	
-public:
-	
-	bool operator<(horas const& that) const {
-		return hora() < that.hora();
-	}
-	bool operator>(horas const& that) const {
-		return that < *this;
-	}
-};
 
 int main() {
 
