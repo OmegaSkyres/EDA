@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "pelicula.cpp"
-#include "horario.cpp"
+#include "horas.cpp"
 
 int main() {
 	// ajustes para que cin extraiga directamente de un fichero

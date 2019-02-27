@@ -4,24 +4,28 @@
 #include <string>
 using namespace std;
 
-#include "horario.h"
+#include "horas.h"
 
 class pelicula {
 private:
-	horario horaInicio;
-	horario horaFin;
-	horario duracion;
+	horas horaInicio;
+	horas horaFin;
+	horas duracion;
 	string nombreP;
 
 public:
-	pelicula(horario inicio, horario duracion, string nombre);
+	pelicula(horas inicio, horas duracion, string nombre);
 	pelicula(); //Constructo vacio
 	~pelicula(); //Destructor
 	void print();
 	string getNombre();
-	bool operator>(pelicula &peli);
-	bool operator<(pelicula &peli);
-	horario operator+();
+	horas getHoraFin();
+	horas getHoraInicio();
+	horas getDuracion();
+	horas setHoraFin(horas h);
+	//bool operator>(pelicula &peli);
+	//bool operator<(pelicula &peli);
+	
 	
 		
 
