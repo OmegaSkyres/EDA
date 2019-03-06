@@ -12,9 +12,11 @@ private: int numIteraciones;
 		 float parteReal, parteImaginaria;
 
 public:
-	complejo();
+	
 	complejo(float numReal, float numImaginaria, int numeroIteraciones) : parteReal(numReal), parteImaginaria(numImaginaria), numIteraciones(numeroIteraciones) {
-		
+		parteReal = numReal;
+		parteImaginaria = numImaginaria;
+		numIteraciones = numeroIteraciones;
 	}
 
 	float getNumReal() {
@@ -67,4 +69,4 @@ public:
 
 
 
-#endif#pragma once
+#endif

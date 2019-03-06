@@ -11,14 +11,17 @@
 
 
 bool resuelveCaso() {
-	complejo c, aux;
+	float numReal = 0, numImaginario = 0;
+	int repes = 0;
+	complejo c(numReal, numImaginario, repes);
+	complejo aux(numReal, numImaginario, repes);
 	int i = 0;
 	bool ok = true;
 	cin >> c;
 	aux = c;
 	int n = c.getNumIteraciones();
 	while (ok && i < n) {
-		if (c%c < 2) {
+		if (c%c > 2) {
 			ok = false;
 		}
 		else {
@@ -42,10 +45,10 @@ bool resuelveCaso() {
 		// Resolvemos
 		for (int i = 0; i < numCasos; ++i) {
 			if (resuelveCaso()) {
-				cout << "SI" << "/n";
+				cout << "SI" << "\n";
 			}
 			else {
-				cout << "NO" << "/n";
+				cout << "NO" << "\n";
 			}
 		}
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
