@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9EE62A84-ED46-4DC0-A146-AD6E78EC436E}</ProjectGuid>
-    <RootNamespace>CF02</RootNamespace>
+    <ProjectGuid>{05792F83-9588-4851-AEBE-C6F084A7F00A}</ProjectGuid>
+    <RootNamespace>CF03</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,11 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="pelicula.cpp" />
+    <ClCompile Include="complejo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="horas.h" />
-    <ClInclude Include="pelicula.h" />
+    <ClInclude Include="complejo.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="casos.txt" />

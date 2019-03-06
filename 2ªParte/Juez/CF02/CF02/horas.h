@@ -1,4 +1,3 @@
-
 #ifndef HORAS_H
 #define HORAS_H
 
@@ -62,29 +61,6 @@ public:
 		}
 	}
 
-	horas operator+(horas &hora) {
-		horas resultado;
-		int horas, minutos, segundos;
-		segundos = _segundos + hora.segundos;
-		if (segundos > 59) {
-			segundos = 0;	
-			minutos = minutos + 1;
-		}
-		minutos = _minutos + hora.minutos;
-		if (minutos > 59) {
-			minutos = 0;
-			horas = horas + 1;
-		}
-		horas = _horas + hora.hora;
-		if (horas > 23) {
-			throw invalid_argument("ERROR LOS DATOS INTRODUCIDOS NO OFRECEN NINGUNA POSIBILIDAD EN ESTA FECHA");
-		}
-		resultado.hora = horas;
-		resultado.minutos = minutos;
-		resultado.segundos = segundos;
-		return resultado;
-	}
-
 	void print(ostream & out = cout) const {
 
 		if (_horas < 10) {
@@ -120,6 +96,41 @@ public:
 		}
 
 	}
+
+	horas operator+ (const horas &h) const {
+		horas sum;
+
+		sum._segundos = _segundos + h._segundos;
+		if (sum._segundos > 59) {
+			sum._minutos++;
+			sum._segundos -= 60;
+		}
+
+		sum._minutos += _minutos + h._minutos;
+		if (sum._minutos > 59) {
+			sum._horas++;
+			sum._minutos -= 60;
+		}
+
+		//si la suma sobrepasa 24h
+		sum._horas += _horas + h._horas;
+		if (sum._horas > 23) {
+			throw invalid_argument("sobrepasa el día");
+		}
+
+		return sum;
+	}
+
+	bool operator == (const horas &h)const {
+		if (h._horas == _horas && h._minutos == _minutos && h._segundos == _segundos) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+
 
 };
 

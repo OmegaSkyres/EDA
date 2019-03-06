@@ -15,19 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pelicula.cpp">
-      <Filter>Archivos de recursos</Filter>
+    <Text Include="casos.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="complejo.cpp">
+      <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="horas.h">
+    <ClInclude Include="complejo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="pelicula.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="casos.txt" />
   </ItemGroup>
 </Project>

@@ -47,7 +47,7 @@ bool resuelveCaso() {
 	cout << "---" << endl;
 	return true;
 }
-
+/*
 int main() {
 	// Para la entrada por fichero.
 #ifndef DOMJUDGE
@@ -67,3 +67,4 @@ int main() {
 
 	return 0;
 }
+*/
