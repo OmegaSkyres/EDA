@@ -14,20 +14,24 @@ int opera(vector<polinomio> &valores, vector<int> &x) {
 	int resultado;
 	for (int i = 0; i < x.size(); i++) {
 		int operador = x[i];
-		return resultado = valores[i].getCoef * pow(valores[i].getExpo, operador);
+		return resultado = valores[i].getCoef() * pow(valores[i].getExpo(), operador);
 	}
+	
 }
 
 
+
 bool resuelveCaso() {
-	int coeficiente = 0, exponente = 0, nValores, resultado;
-	polinomio p(coeficiente,exponente);
+	int nValores, resultado, i = 0;
+	polinomio p;
 	vector<polinomio> valores;
 	vector<int> x;
-	valores.push_back(p);
+
+	cin >> valores[i];
 	
-	while (p.getCoef() != 0 && p.getExpo() != 0) {
-		valores.push_back(p);
+	while (valores[i].getCoef() != 0 && valores[i].getExpo() != 0) {
+		i++;
+		cin >> valores[i];
 	}
 
 	cin >> nValores;
@@ -35,7 +39,7 @@ bool resuelveCaso() {
 		cin >> x[i];
 	}
 	resultado = opera(valores,x);
-	cout << resultado << resultado << "/n";
+	cout << resultado << resultado << "\n";
 	return true;
 }
 

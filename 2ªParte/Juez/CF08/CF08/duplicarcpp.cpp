@@ -1,39 +1,77 @@
-#include <iostream>
-#include <string>
-using namespace std
-
-#include "dequeue_eda.h"
-#include "duplicar.h"
-#include "list_eda.h"
+﻿#include <iostream>
+#include <fstream>
+using namespace std;
 #include "queue_eda.h"
 
-void duplica() { //Duplica de queu
-	Nodo *aux = this->pr;
-	whle(aux != nullptr) {
-		Nodo * nuevo = new Nodo(aux->elem, aux->sig);
-		aux->sig = nuevo;
-		aux = nuevo->sig;
-		this->ultimo = nuevo;
-		this->nelems * 2;
+template <class T>
+class ListaDuplica : public queue<T> {
+	using Nodo = typename queue<T>::Nodo;  // para poder usar Nodo aqu�
+public:
+	void print(std::ostream & o = std::cout) const {
+		if (!this->empty()) {// la lista no est� vac�a
+			Nodo * nodo = this->prim;
+			for (int i = 0; i < this->nelems; i++) {
+				cout << nodo->elem << " ";
+				nodo = nodo->sig;
+			}
+
+		// COMPLETAR
+
+
+		}
 	}
+
+	// Duplicar los nodos de una lista
+	void duplica() {
+		Nodo *nodo = this->prim;
+		int n = this->nelems;
+		for (int i = 0; i < n; i++) {
+			Nodo * sig = nodo->sig;
+			nodo->sig = new Nodo(nodo->elem, sig);
+			nodo = sig;
+			this->nelems++;
+		}
+
+	}
+};
+
+template <class T>
+inline std::ostream& operator<<(std::ostream & o, ListaDuplica<T> const& a) {
+	a.print(o);
+	return o;
 }
 
-void duplica() { //Duplica de deque
-	Nodo * aux = fantasma->sig();
-	while (aux != fantasma) {
-		Nodo *nuevo = new Nodo(aux->elem, aux, aux->sig);
-		aux->sig->ant = nuevo;
-		aux->sig = nuevo;
+bool resuelveCaso() {
+	int n;
+	std::cin >> n;
+	if (!cin) return false;
+	ListaDuplica<int> lista;
+	// creamos la lista
+	while (n != 0) {
+		lista.push(n);
+		std::cin >> n;
 	}
-
-	nebas * 2;
+	// la duplicamos
+	lista.duplica();
+	// y la mostramos
+	std::cout << lista << '\n';
+	return true;
 }
 
-void duplica(int<T> & lista) { //Duplica de list
-	auto it = lista.begin();
-	auto itfin = lista.end();
-	while (it != itFin) {
-		lista.inset(it, *it);
-		it++;
-	}
+int main() {
+
+	// ajuste para que cin extraiga directamente de un fichero
+#ifndef DOMJUDGE
+	std::ifstream in("casos.txt");
+	auto cinbuf = std::cin.rdbuf(in.rdbuf());
+#endif
+
+	while (resuelveCaso());
+
+	// restablecimiento de cin
+#ifndef DOMJUDGE
+	std::cin.rdbuf(cinbuf);
+	system("pause");
+#endif
+	return 0;
 }

@@ -116,13 +116,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="duplicarcpp.cpp" />
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dequeue_eda.h" />
     <ClInclude Include="duplicar.h" />
     <ClInclude Include="list_eda.h" />
     <ClInclude Include="queue_eda.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="casos.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

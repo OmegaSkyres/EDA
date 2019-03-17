@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="duplicarcpp.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -35,5 +32,8 @@
     <ClInclude Include="list_eda.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="casos.txt" />
   </ItemGroup>
 </Project>

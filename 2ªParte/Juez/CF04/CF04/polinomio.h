@@ -16,7 +16,7 @@ private:
 	int coef, expo;
 
 public:
-	polinomio(int coeficiente, int exponente) : coef(coeficiente), expo(exponente) {
+	polinomio(int coeficiente = 0, int exponente = 0) : coef(coeficiente), expo(exponente) {
 
 	}
 
@@ -28,13 +28,15 @@ public:
 		return expo;
 	}
 
-	inline istream & operator>> (istream &salida, polinomio &polinomio) {
-		int coeficiente, exponente;
-		char aux;
-		salida >> coeficiente >> exponente;
-		polinomio = polinomio(coeficiente, exponente);
-		return salida;
-	}
+	
+};
+
+inline istream & operator>> (istream &salida, polinomio &poli) {
+	int coeficiente, exponente;
+	salida >> coeficiente >> exponente;
+	
+	poli = polinomio(coeficiente, exponente);
+	return salida;
 }
 
 #endif

@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{D7906E35-4813-4BD3-913F-257AC1158801}</ProjectGuid>
-    <RootNamespace>CF04</RootNamespace>
+    <ProjectGuid>{4629570D-92E1-473A-9474-781DBD9D7715}</ProjectGuid>
+    <RootNamespace>CF06</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,10 +115,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="polinomiocpp.cpp" />
+    <ClCompile Include="ParentesisEquilibrados.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="polinomio.h" />
+    <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="casos.txt" />
