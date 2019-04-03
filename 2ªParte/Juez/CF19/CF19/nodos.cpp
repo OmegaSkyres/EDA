@@ -62,11 +62,37 @@ int calculaAltura(bintree<char> arbol) {
 	}
 }
 
+int calculaNumeroNodos(bintree<char> arbol) {
+	if (arbol.empty()) {
+		return 0;
+	}
+	else {
+		int izq = calculaNumeroNodos(arbol.left());
+		int der = calculaNumeroNodos(arbol.right());
+		return 1 + izq + der;
+	}
+}
+
+int calculaNumeroHojas(bintree<char> arbol) {
+	if (arbol.empty()) {
+		return 1;
+	}
+	else {
+		int izq = 0, der = 0;
+
+		if (!arbol.left().empty())
+		if(!arbol.right().empty())
+			der = calculaNumeroHojas(arbol.right());
+
+		return izq + der;
+	}
+}
+
 void resuelveCaso() {
 	int nElementos;
 	bintree<char> arbol;
 	arbol = leerArbol('.');
-	cout << calculaAltura(arbol) << endl;
+	cout << calculaNumeroNodos(arbol) << " " << calculaNumeroHojas(arbol) << " " << calculaAltura(arbol) << endl;
 }
 
 
