@@ -74,17 +74,15 @@ int calculaNumeroNodos(bintree<char> arbol) {
 }
 
 int calculaNumeroHojas(bintree<char> arbol) {
+	int hoja = 0;
 	if (arbol.empty()) {
+		return 0;
+	}
+	else if (arbol.left().empty() && arbol.right().empty()){
 		return 1;
 	}
 	else {
-		int izq = 0, der = 0;
-
-		if (!arbol.left().empty())
-		if(!arbol.right().empty())
-			der = calculaNumeroHojas(arbol.right());
-
-		return izq + der;
+		return calculaNumeroHojas(arbol.left()) + calculaNumeroHojas(arbol.right());
 	}
 }
 

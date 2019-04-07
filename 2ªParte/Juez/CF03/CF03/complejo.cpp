@@ -1,60 +1,45 @@
+//Adrian de Andres
+//F22
 
-
-//Roberto Torres Prensa
-
-#include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <vector>
 #include "complejo.h"
+#include <cmath>
 
 
 
-bool resuelveCaso() {
-	float numReal = 0, numImaginario = 0;
-	int repes = 0;
-	complejo c(numReal, numImaginario, repes);
-	complejo aux(numReal, numImaginario, repes);
-	int i = 0;
-	bool ok = true;
-	cin >> c;
-	aux = c;
-	int n = c.getNumIteraciones();
-	while (ok && i < n) {
-		if (c%c > 2) {
-			ok = false;
-		}
-		else {
-			c = (c*c) + aux;
-		}
-		i++;
-	}
-	return ok;
+
+/*
+template<class T>
+complejo<T> complejo<T>::operator+(const complejo<T>& other) const
+{
+	T aR, bR;
+	aR = this->a + other.a;
+	bR = this->b + other.b; 
+	return complejo<T>(aR, bR); 
 }
 
-	int main() {
-		// Para la entrada por fichero.
-#ifndef DOMJUDGE
-		std::ifstream in("casos.txt");
-		auto cinbuf = std::cin.rdbuf(in.rdbuf());
-#endif
+
+template<class T>
+complejo<T> complejo<T>::operator*(const complejo<T>& other) const
+{
+	T aR, bR; 
+	aR = (this->a * other.a) - (this->b * other.b);
+	bR = (this->a * other.b) + (this->b * other.a);
+	return complejo(aR, bR); 
+}
+
+template<class T>
+T complejo<T>::mod() const 
+{
+	return sqrt(pow(2, this->a) + pow(2, this->b)); 
+}
 
 
-		unsigned int numCasos;
-		std::cin >> numCasos;
-		// Resolvemos
-		for (int i = 0; i < numCasos; ++i) {
-			if (resuelveCaso()) {
-				cout << "SI" << "\n";
-			}
-			else {
-				cout << "NO" << "\n";
-			}
-		}
-#ifndef DOMJUDGE // para dejar todo como estaba al principio
-		std::cin.rdbuf(cinbuf);
-		system("PAUSE");
-#endif
-		return 0;
-	}
-
+template<class T>
+void operator >>(std::istream& in, complejo<T> & c)
+{
+	float aP, bP; 
+	in >> aP; 
+	in >> bP; 
+	c = complejo(aP, bP); 
+}
+*/
