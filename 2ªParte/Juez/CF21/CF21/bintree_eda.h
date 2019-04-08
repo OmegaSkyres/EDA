@@ -238,4 +238,5 @@ inline bintree<T> leerArbol(T vacio) {
 	}
 }
 
+
 #endif // bintree_eda_h

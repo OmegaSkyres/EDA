@@ -16,17 +16,31 @@
 
 using namespace std;
 
-template <class T>
-void calculaMinimo(bintree<T> arbol, T &menor) {
-	if (!arbol.empty()) {
-		if (arbol.root() < menor) {
-			menor = arbol.root();
+
+template <typename T>
+T calculaMinimo(bintree<T>arbol) {
+	T minimo = arbol.root();
+	if (arbol.empty()) {
+		return 0;
+	}
+	else {
+		if (arbol.right().empty() && arbol.left().empty()) {
+			 minimo = arbol.root();
 		}
 		else {
-			calculaMinimo(arbol.left(), menor);
-			calculaMinimo(arbol.right(), menor);
+			T izq = calculaMinimo(arbol.left());
+			if (minimo > izq) {
+				minimo = izq;
+			}
+			T der = calculaMinimo(arbol.right());
+			if (minimo > der) {
+				minimo = der;
+			}
+
 		}
 	}
+	return minimo;
+	
 }
 bool resuelveCaso() {
 	string caso;
@@ -37,17 +51,13 @@ bool resuelveCaso() {
 		int elemento = -1;
 		bintree<int> arbol;
 		arbol = leerArbol(elemento);
-		int menor = arbol.root();
-		calculaMinimo(arbol, menor);
-		cout << menor << endl;
+		cout << calculaMinimo(arbol) << endl;
 	}
 	else if (caso == "P") {
 		string palabra = "#";
 		bintree<string> arbol;
 		arbol = leerArbol(palabra);
-		string menor = arbol.root();
-		calculaMinimo(arbol, menor);
-		cout << menor << endl;
+		cout << calculaMinimo(arbol) << endl;
 	}
 	return true;
 }
