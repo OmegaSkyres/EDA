@@ -1,3 +1,6 @@
+//Roberto Torres Prensa
+
+
 // Altura de un árbol
 
 // Construye un árbol binario a partir de la entrada y después
@@ -22,14 +25,32 @@ bool resuelveCaso() {
 
 	//Leer caso de prueba
 	int numCasos;
-	getline(cin, numCasos);
-
-	if (!std::cin)
+	string autor, resultado, trash;
+	map<string, int> clase;
+	cin >> numCasos;
+	if (numCasos == 0)
 		return false;
+	getline(cin, trash);
+	for (int i = 0; i < numCasos; i++) {
+		getline(cin, autor);
+		clase.insert({ autor, 0 });
+		getline(cin, resultado);
+		if (resultado == "CORRECTO") {
+			clase[autor]++;
+		}
+		else {
+			clase[autor]--;
+		}
+	}
 
+	for (auto const& cv : clase) {
+		if (cv.valor != 0) {
+			cout << cv.clave << ", " << cv.valor << endl;
+		}
+	}
 
-	//Resolver problema
-	//Escribir resultado
+	cout << "---" << endl;
+
 	return true;
 }
 

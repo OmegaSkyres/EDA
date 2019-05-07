@@ -123,10 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mePilló.cpp" />
+    <ClCompile Include="mePillo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="treemap_eda.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="casos.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

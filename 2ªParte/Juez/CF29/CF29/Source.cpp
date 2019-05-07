@@ -19,7 +19,7 @@ void resuelveCaso() {
 			repeticiones = emisiones[capitulo] + 1;	
 		}
 
-		contador++;
+		contador = (i - repeticiones) + 1; //Muy importante si no se va a time limit
 		emisiones[capitulo] = i;
 		if (contador > longMax) {
 			longMax = contador;
