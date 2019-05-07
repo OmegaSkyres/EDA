@@ -19,28 +19,22 @@ using namespace std;
 
 template <typename T>
 T calculaMinimo(bintree<T>arbol) {
-	T minimo = arbol.root();
-	if (arbol.empty()) {
-		return 0;
-	}
-	else {
+	T minimo;
 		if (arbol.right().empty() && arbol.left().empty()) {
-			 minimo = arbol.root();
+			 return arbol.root();
 		}
 		else {
-			T izq = calculaMinimo(arbol.left());
-			if (minimo > izq) {
-				minimo = izq;
+			if (arbol.right().empty() && !arbol.left().empty()) {
+				return min(calculaMinimo(arbol.left()), arbol.root());
 			}
-			T der = calculaMinimo(arbol.right());
-			if (minimo > der) {
-				minimo = der;
+			else if (!arbol.right().empty() && arbol.left().empty()) {
+				return min(calculaMinimo(arbol.right()), arbol.root());
 			}
-
+			else {
+				minimo = min(calculaMinimo(arbol.right()), calculaMinimo(arbol.left()));
+				return minimo;
+			}
 		}
-	}
-	return minimo;
-	
 }
 bool resuelveCaso() {
 	string caso;
