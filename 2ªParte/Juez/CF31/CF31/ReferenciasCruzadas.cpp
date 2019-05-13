@@ -2,24 +2,55 @@
 // Roberto Torres Prensa
 
 #include <iostream>
-
 #include <fstream>
+#include <iomanip>
+#include <algorithm>	
 #include <string>
-#include "treemap_eda.h"
+#include <sstream>
+#include <vector>
+#include <map>
+
 using namespace std;
 
 bool resuelveCaso() {
-
-	//Leer caso de prueba
-
-	if (!std::cin)
+	map<string, vector<int>> valores;
+	int numCasos;
+	string frase, clave, trash;
+	cin >> numCasos;
+	if (numCasos == 0) {
 		return false;
-
-
-	//Resolver problema
-	//Escribir resultado
+	}
+	getline(cin, trash);
+	for (int i = 0; i < numCasos; i++) {
+		getline(cin, frase);
+		stringstream ss(frase);
+		ss.clear();
+		ss.str(frase);
+		while (ss >> clave) {
+			if (clave.length() > 2) {
+				transform(clave.begin(), clave.end(), clave.begin(), ::tolower);
+				if (valores.count(clave)) {
+					vector<int>& v_ref = valores[clave];
+					if (v_ref.empty() || v_ref[v_ref.size() - 1] < i + 1) {
+						valores[clave].push_back(i + 1);
+					}
+				}
+				else {
+					valores[clave].push_back(i + 1);
+				}
+			}
+		}
+	}
+	for (auto it = valores.begin(); it != valores.cend(); it++) {
+		std::cout << it->first;
+		for (int i = 0; i < it->second.size(); i++)
+			std::cout << " " << it->second[i];
+		std::cout << "\n";
+	}
+	cout << "----" << endl;
 	return true;
 }
+
 
 
 int main() {

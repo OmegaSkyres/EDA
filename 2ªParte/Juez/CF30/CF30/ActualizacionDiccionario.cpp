@@ -6,113 +6,101 @@
 #include <sstream>
 #include <iterator>
 #include <vector>
+#include <set>
 #include "treemap_eda.h"
 using namespace std;
 
-void resolver(map<std::string, int> antiguoDiccionario, map<std::string, int> nuevoDiccionario,
-	vector<string>& anadidos, vector<string>& eliminados, vector<string>& modificados) {
-	bool encontrado = false;
-	auto itA = antiguoDiccionario.begin();
-	auto itN = nuevoDiccionario.begin();
-
-	while (itA != antiguoDiccionario.end()) { //Recorremos todo el diccionario antiguo
-		if (nuevoDiccionario.count(itA->clave)) { //Si el nuevo tiene la clave del antiguo, existe
-			if (nuevoDiccionario.find(itA->clave)->valor != antiguoDiccionario.find(itA->clave)->valor)
-				modificados.push_back(itA->clave); //Si no es el mismo valor, añadimos la clave a modificados
-		}
-		else if (nuevoDiccionario.empty()) {
-			anadidos.push_back(itA->clave);
-		}
-		else eliminados.push_back(itA->clave); //Si no tiene la clave, la añadimos a eliminados
-		++itA;
+void leerAntiguo(map<string, int>& diccionarios) {
+	string clave, s;
+	int valor;
+	getline(cin, s);
+	stringstream ss(s);
+	while (ss >> clave && ss >> valor) {
+		diccionarios[clave] = valor;
 	}
-	
-	while (itN != nuevoDiccionario.end()) {
-		if (!antiguoDiccionario.count(itN->clave)) anadidos.push_back(itN->clave);
-		++itN;
-	}
-
 }
 
-// Resuelve un caso de prueba, leyendo de la entrada la
-// configuración, y escribiendo la respuesta
 void resuelveCaso() {
-	map<std::string, int> antiguoDiccionario;
-	map<std::string, int> nuevoDiccionario;
-	vector<string> anadidos, eliminados, modificados;
-
-	std::string clave, linea1, linea2;
+	map<string, int> oldDic;
+	string clave, s;
 	int valor;
+	set<string> add, sub, mul;
+	leerAntiguo(oldDic);
+	//leemos el nuevo 
+	getline(cin, s);
+	stringstream ss(s);
+	while (ss >> clave && ss >> valor) {
 
-	if (!std::cin) return;
+		if (oldDic.count(clave) > 0) {
 
-
-	getline(cin, linea1);
-	stringstream ss(linea1);
-
-	while (ss >> clave) {
-		ss >> valor;
-		antiguoDiccionario.insert({ clave, valor });
+			if (oldDic[clave] != valor) {
+				//si ha cambiado el valor
+				oldDic.erase(clave);
+				mul.insert(clave);
+			}
+			else {
+				oldDic.erase(clave);
+			}
+		}
+		else {
+			//si la clave no está, ha sido añadida
+			add.insert(clave);
+		}
 	}
 
+	for (auto const& cv : oldDic) {
 
-	getline(cin, linea2);
-
-	stringstream sa(linea2);
-
-	while (sa >> clave) {
-		sa >> valor;
-		nuevoDiccionario.insert({ clave, valor });
+		sub.insert(cv.clave);
+		//oldDic.erase(cv.clave);
 	}
 
-	resolver(antiguoDiccionario, nuevoDiccionario, anadidos, eliminados, modificados);
-
-
-	if (!eliminados.empty() || !modificados.empty() || !anadidos.empty()) {
-		if (!anadidos.empty()) {
+	if (add.size() > 0 || mul.size() > 0 || sub.size() > 0) {
+		if (add.size() > 0) {
 			cout << "+ ";
-			for (int i = 0; i < anadidos.size(); ++i)
-				cout << anadidos.at(i) << " ";
+			for (auto const& i : add) {
+				cout << i << " ";
+			}
 			cout << endl;
 		}
-
-
-		if (!eliminados.empty()) { //Eliminados
+		if (sub.size() > 0) {
 			cout << "- ";
-			for (int i = 0; i < eliminados.size(); ++i)
-				cout << eliminados.at(i) << " ";
+			for (auto const& i : sub) {
+				cout << i << " ";
+			}
 			cout << endl;
 		}
-
-		if (!modificados.empty()) { //Modificados
+		if (mul.size() > 0) {
 			cout << "* ";
-			for (int i = 0; i < modificados.size(); ++i)
-				cout << modificados.at(i) << " ";
+			for (auto const& i : mul) {
+				cout << i << " ";
+			}
 			cout << endl;
 		}
 	}
-	else cout << "Sin cambios" << endl;
+	else {
+		cout << "SIN CAMBIOS" << endl;
+	}
 
 	cout << "----" << endl;
 }
 
 int main() {
 	// Para la entrada por fichero.
-	// Comentar para acepta el reto
 #ifndef DOMJUDGE
-	std::ifstream in("Casos.txt");
-	auto cinbuf = std::cin.rdbuf(in.rdbuf()); //save old buf and redirect std::cin to casos.txt
-#endif 
+	std::ifstream in("casos2_30.txt");
+	auto cinbuf = std::cin.rdbuf(in.rdbuf());
+#endif
 
 
-	int numCasos;
+	unsigned int numCasos;
 	std::cin >> numCasos;
-	cin.get();
-	for (int i = 0; i < numCasos; ++i)
+	cin.ignore(); //leemos basura
+	// Resolvemos
+	for (int i = 0; i < numCasos; ++i) {
 		resuelveCaso();
+	}
 
 
-	// Para restablecer entrada. Comentar para acepta el reto
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
 	std::cin.rdbuf(cinbuf);
 	system("PAUSE");
