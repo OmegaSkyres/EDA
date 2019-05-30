@@ -49,7 +49,6 @@ public:
 	}
 
 	int cuantosConPuntos(int puntos) {
-		int numero;
 		if (puntos < 0 || puntos > 15) {
 			throw domain_error("Puntos no validos.");
 		}
