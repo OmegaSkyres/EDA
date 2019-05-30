@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D4920D37-E8ED-4C80-9649-5DF3DDC24267}</ProjectGuid>
-    <RootNamespace>CF38</RootNamespace>
+    <ProjectGuid>{327EC51D-C287-47B0-A527-6F7BB5C59881}</ProjectGuid>
+    <RootNamespace>CF34</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,13 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="canciones.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ipud.h" />
+    <ClCompile Include="CarnetPorPuntos1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="casos.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="carnetpuntos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

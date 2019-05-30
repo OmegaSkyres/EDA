@@ -1,33 +1,94 @@
 #include<iostream>
 #include<list>
 #include<unordered_map>
+#include <fstream>
 #include<string>
+#include"ipud.h"
 using namespace std;
-using DNI = string;
-typedef struct {
-	string artista;
-	int duracion;
-	list<DNI>::iterator itList;
-}infoCancion;
 
-unordered_map<DNI, infoConductor> conductores;
-unordered_map<int, list<DNI>>por_puntos;
 
-public:
 
-	void addSong() {
-		por_puntos[p].push_front(p);
-		conductores[c].puntos = p;
-		conductores[c].itLista = por_puntos[p].begin();
-	}
 
-	void quitar(DNI c, int p) {
-		infoConductor& par = conductores[c];
-		int nuevosPtos = max(0, par.puntos - puntos);
-		if (nuevosPtos != par.puntos) {
-			por_puntos[par.puntos].erase(par.itLista);
-			insertar(c, nuevosPtos);
+
+bool resuelveCaso() {
+	string orden, cancion, artista;
+	int duracion, n;
+	iPud mp3;
+
+	cin >> orden;
+
+	if (!std::cin)  // fin de la entrada
+		return false;
+
+	while (orden != "FIN") {
+		try {
+			if (orden == "addSong") {
+				cin >> cancion >> artista >> duracion;
+				mp3.addSong(cancion, artista, duracion);
+			}
+			else if (orden == "addToPlaylist") {
+				cin >> cancion;
+				mp3.addToPlaylist(cancion);
+			}
+			else if (orden == "play") {
+				cancion = mp3.play();
+				if (cancion != "ERROR") {
+					cout << "Sonando " << cancion << endl;
+				}
+				else {
+					cout << "No hay canciones en la lista" << endl;
+				}
+			}
+			else if (orden == "totalTime") {
+				cout << "Tiempo total " << mp3.totalTime() << endl;
+			}
+			else if (orden == "deleteSong") {
+				cin >> cancion;
+				mp3.deleteSong(cancion);
+			}
+			else if (orden == "current") {
+				mp3.current();
+			}
+			else if (orden == "recent") {
+				cin >> n;
+				list<string> lista = mp3.recent(n);
+				if (lista.empty()) {
+					cout << "No hay canciones recientes" << endl;
+				}
+				else {
+					cout << "Las " << n << " mas recientes" << endl;
+					for (auto const& i : lista) {
+						cout << "    " << i << endl;
+					}
+				}
+			}
+
+			cin >> orden;
+		}
+
+		catch (domain_error e) {
+			cout << e.what() << endl;
+			cin >> orden;
 		}
 	}
+	cout << "----" << endl;
 
+	return true;
+}
 
+int main() {
+	// ajustes para que cin extraiga directamente de un fichero
+#ifndef DOMJUDGE
+	std::ifstream in("casos.txt");
+	auto cinbuf = std::cin.rdbuf(in.rdbuf());
+#endif
+
+	while (resuelveCaso());
+
+	// para dejar todo como estaba al principio
+#ifndef DOMJUDGE
+	std::cin.rdbuf(cinbuf);
+	system("PAUSE");
+#endif
+	return 0;
+}

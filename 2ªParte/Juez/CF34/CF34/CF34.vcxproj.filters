@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="canciones.cpp">
+    <ClCompile Include="CarnetPorPuntos1.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ipud.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <Text Include="casos.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="casos.txt" />
+    <ClInclude Include="carnetpuntos.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
