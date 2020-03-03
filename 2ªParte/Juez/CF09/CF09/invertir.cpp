@@ -9,34 +9,31 @@ template <class T>
 class ListaDuplica : public queue<T> {
 	using Nodo = typename queue<T>::Nodo;  // para poder usar Nodo aqu�
 public:
-	void print(std::ostream & o = std::cout) const {
-		if (!this->empty()) {// la lista no est� vac�a
-			Nodo * nodo = this->prim;
+	void print(std::ostream& o = std::cout) const {
+		if (!this->empty()) {
+			Nodo* nodo = this->prim;
 			for (int i = 0; i < this->nelems; i++) {
 				cout << nodo->elem << " ";
 				nodo = nodo->sig;
 			}
-
-			// COMPLETAR
-
-
 		}
 	}
 
-	// Duplicar los nodos de una lista
 	void invierte() {
 		int n = this->nelems;
-		Nodo *prev = NULL;
-		Nodo *current = this->prim;
-		Nodo *next = NULL;
-		while (current != NULL) { //2,4,5,7
-			next = current->sig;
-			current->sig = prev;
-			prev = current;
-			current = next;
+		Nodo* actual = this->prim;
+		Nodo* sig = NULL;
+		Nodo* prev = NULL;
+		while (actual != NULL) {
+			sig = actual->sig;
+			actual->sig = prev;
+			prev = actual;
+			actual = sig;
 		}
 		this->prim = prev;
 	}
+	
+	
 };
 
 template <class T>

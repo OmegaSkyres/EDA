@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "El juego del Domino", "El juego del Domino\El juego del Domino.vcxproj", "{B3AEA7FB-200D-4952-B008-0239F817F625}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Debug|x64.ActiveCfg = Debug|x64
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Debug|x64.Build.0 = Debug|x64
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Debug|x86.ActiveCfg = Debug|Win32
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Debug|x86.Build.0 = Debug|Win32
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Release|x64.ActiveCfg = Release|x64
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Release|x64.Build.0 = Release|x64
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Release|x86.ActiveCfg = Release|Win32
+		{B3AEA7FB-200D-4952-B008-0239F817F625}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFEB0FE2-C285-4F35-B79F-FA3B5DD58EDA}
+	EndGlobalSection
+EndGlobal
